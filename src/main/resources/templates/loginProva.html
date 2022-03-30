@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>LogIn</title>
+</head>
+
+<body>
+	<div style="text-align: center;">
+		<img th:src="@{/logoITSAR.png}"> <br>
+		<h1>Selezioni</h1>
+		<p style="color: red;" th:text="${avviso}"></p>
+		<form action="#" th:action="@{/login}" method="post">
+
+			<p>Mail:</p>
+			<input type="text" name="mail">
+			<p>Codice Fiscale:</p>
+			<input type="text" name="cf"> <br> <br>
+			<input type="submit" value="Entra">
+		</form>
+	</div>
+</body>
+</html>

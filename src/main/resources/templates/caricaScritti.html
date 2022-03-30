@@ -1,0 +1,51 @@
+<html>
+<head>
+<title>Select Manager - Carica risultati scritti</title>
+</head>
+<link rel="stylesheet" href="/style.css">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1>Carica risultati scritti</h1>
+
+	<table style="border: 1px solid black;">
+		<tr>
+			<td class="tHeader">Candidato</td>
+			<td class="tHeader">Inglese</td>
+			<td class="tHeader">Logica</td>
+			<td class="tHeader">Grafica</td>
+			<td class="tHeader">IT</td>
+			<td class="tHeader">Ammesso Orale</td>
+		</tr>
+		<tr th:each="c : ${candidati}">
+			<td class="tCell" th:text="${c}"></td>
+			<td th:if="${c.getPunteggioScritti() != null}" class="tCell"
+				th:text="${c.getPunteggioScritti().getpInglese()}"></td>
+			<td th:if="${c.getPunteggioScritti() == null}" class="tCell"></td>
+			<td th:if="${c.getPunteggioScritti() != null}" class="tCell"
+				th:text="${c.getPunteggioScritti().getpLogica()}"></td>
+			<td th:if="${c.getPunteggioScritti() == null}" class="tCell"></td>
+			<td th:if="${c.getPunteggioScritti() != null}" class="tCell"
+				th:text="${c.getPunteggioScritti().getpGrafica()}"></td>
+			<td th:if="${c.getPunteggioScritti() == null}" class="tCell"></td>
+			<td th:if="${c.getPunteggioScritti() != null}" class="tCell"
+				th:text="${c.getPunteggioScritti().getpICT()}"></td>
+			<td th:if="${c.getPunteggioScritti() == null}" class="tCell"></td>
+			<td th:if="${c.getPunteggioScritti() == null}" class="tCell"></td>
+			<td
+				th:if="${c.getPunteggioScritti() != null && c.getPunteggioScritti().getAmmessoOrale() == 1}"
+				class="tCell">S&igrave;</td>
+			<td
+				th:if="${c.getPunteggioScritti() != null && c.getPunteggioScritti().getAmmessoOrale() == 0}"
+				class="tCell">No</td>
+			<td class="tCell"><a
+				th:href="@{/assegnaPunteggio/{id}(id=${c.getId()})}">Assegna
+					punteggi</a></td>
+			<td class="tCell"><a
+				th:href="@{/ritirato/{id}(id=${c.getId()})}">Segna come ritirato</a></td>
+		</tr>
+	</table>
+	<br>
+	<a th:href="@{/caricaCSV}">Carica risultati tramite CSV</a>
+</body>
+</html>

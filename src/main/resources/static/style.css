@@ -1,0 +1,51 @@
+a {
+	text-decoration: none;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	background: #de2d26;
+	color: white;
+	background: #de2d26;
+}
+
+.sub {
+	width: 100px;
+	height: 50px;
+	text-align: center;
+	background: #de2d26;
+	color: white;
+	background: #de2d26;
+}
+
+.tHeader {
+	text-align: center;
+	border: 1px solid black;
+	background: #de2d26;
+	color: white;
+	width: 150px;
+	height: 75px;
+}
+
+.tCell {
+	text-align: center;
+	border: 1px solid black;
+	width: 150px;
+	height: 75px;
+}
+
+table {
+	border: 1px solid black;
+}
+
+select {
+	width: 150px;
+	height: 50px;
+	font-size: 90%;
+}

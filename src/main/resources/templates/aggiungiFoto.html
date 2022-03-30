@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Select Manager - Aggiungi Foto</title>
+</head>
+<link href="/style.css" rel="stylesheet">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1 th:text="|Aggiungi foto per ${candidato}|"></h1>
+	<form action="#" th:action="@{/fotoAggiunta}" method="post"
+		encType="multipart/form-data">
+		<input type="hidden" name="id" th:value="${candidato.getId()}"><input
+			type="file" name="foto" multiple><br> <br> <input
+			class="sub" type="submit" value="Aggiungi">
+	</form>
+</body>
+</html>

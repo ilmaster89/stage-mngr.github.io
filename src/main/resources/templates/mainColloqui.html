@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Select Manager - Colloqui</title>
+</head>
+<link href="/style.css" rel="stylesheet">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1>Lista dei candidati da esaminare</h1>
+	<p>TODO: Istruzioni</p>
+
+	<table>
+		<tr>
+			<td class="tHeader" th:each="s : ${header}" th:text="${s}"></td>
+		</tr>
+		<tr th:each="c: ${candidati}">
+			<td class="tCell"><a
+				th:href="@{/datiColloquio/{id}(id=${c.getId()})}" th:text="${c}"></a></td>
+			<td class="tCell" th:text="${c.getDiploma().getTipo()}"></td>
+			<td class="tCell"><a target="_blank"
+				th:href="@{/downloadFile/{id}(id=${c.getCurriculum().getId()})}">Mostra</a></td>
+			<td class="tCell" th:text="${c.getPunteggioScritti().getpInglese()}"></td>
+			<td class="tCell" th:text="${c.getPunteggioScritti().getpLogica()}"></td>
+			<td class="tCell" th:text="${c.getPunteggioScritti().getpGrafica()}"></td>
+			<td class="tCell" th:text="${c.getPunteggioScritti().getpICT()}"></td>
+			<td class="tCell" th:text="${c.getPref1()}"></td>
+			<td class="tCell" th:text="${c.getPref2()}"></td>
+			<td class="tCell" th:text="${c.getPref3()}"></td>
+			<td th:if="${c.getNote() == null}" class="tCell"><a
+				th:href="@{/aggiungiNote/{id}(id=${c.getId()})}">Aggiungi</a></td>
+			<td th:if="${c.getNote() != null}" class="tCell"
+				th:text="${c.getNote()}"></td>
+			<td th:if="${c.getFoto() == null}" class="tCell"><a
+				th:href="@{/aggiungiFoto/{id}(id=${c.getId()})}">Aggiungi</a></td>
+			<td th:if="${c.getFoto() != null}" class="tCell"><a
+				th:href="@{/visualizzaFoto/{id}(id=${c.getId()})}">Visualizza</a></td>
+		</tr>
+	</table>
+</body>
+</html>

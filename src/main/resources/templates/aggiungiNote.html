@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Select Manager - Aggiungi Note</title>
+</head>
+<link href="/style.css" rel="stylesheet">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1 th:text="|Aggiungi note per ${candidato}"></h1>
+	<form action="#" th:action="@{/noteAggiunte}" method="post">
+		<input type="hidden" th:value="${candidato.getId()}" name="id">
+		<textarea rows="5" cols="20" name="note"></textarea>
+		<br> <input class="sub" type="submit" value="Conferma">
+	</form>
+</body>
+</html>

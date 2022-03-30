@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Select Manager - Ammessi per corso</title>
+</head>
+<link href="/style.css" rel="stylesheet">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1>Ammessi per corso</h1>
+	<table style="border: 1px solid black;">
+		<tr>
+			<td class="tHeader">Corso</td>
+			<td class="tHeader">Ammessi</td>
+			<td class="tHeader">Dettagli</td>
+		</tr>
+		<tr th:each="el : ${list}">
+			<td class="tCell" th:text="${el.get('corso')}"></td>
+			<td class="tCell" th:text="${el.get('numero')}"></td>
+			<td class="tCell"><a
+				th:href="@{/dettaglioAmmessi/{id}(id=${el.get('corso').getId()})}">Dettaglio</a></td>
+		</tr>
+	</table>
+</body>
+</html>

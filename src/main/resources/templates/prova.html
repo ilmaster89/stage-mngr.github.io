@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Prova</title>
+</head>
+<body>
+	<img th:src="@{/logoITSAR.png}" style="padding-left: 20%;">
+	<div style="text-align: center; width: 500; padding-left: 32%;">
+		<br>
+		<h1 th:text="|Prova ${prova.getArgomento().getArgomento()}"></h1>
+		<br>
+		<hr>
+		<br>
+		<form action="#" th:action="@{inviaProva}" method="post"
+			th:object="${domande}">
+
+			<div th:each="domanda, itemStat : ${domande}">
+				<p
+					th:text="${domande[__${itemStat.index}__].getDomanda().getTesto()}"></p>
+				<input type="checkbox" value="1"
+					th:text="${domande[__${itemStat.index}__].getDomanda().getRisp1()}"><br>
+				<input type="checkbox" value="2"
+					th:text="${domande[__${itemStat.index}__].getDomanda().getRisp2()}"><br>
+				<input type="checkbox" value="3"
+					th:text="${domande[__${itemStat.index}__].getDomanda().getRisp3()}"><br>
+				<input type="checkbox" value="4"
+					th:text="${domande[__${itemStat.index}__].getDomanda().getRisp4()}"><br>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

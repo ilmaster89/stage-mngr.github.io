@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Select Manager - Aggiungi data orale</title>
+</head>
+<link rel="stylesheet" href="/style.css">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1
+		th:text="|Aggiungi data orale per la call n&deg;${call.getNumero()} del ${#dates.format(call.getData(), 'dd/MM/yyyy')}|"></h1>
+
+	<form th:action="@{/oraleAdded}" method="post" th:object="${dataOrali}">
+		<input type="hidden" th:value="${call.getId()}" name="callId">
+		<p>
+			Corso: <select th:field="*{corso}"><option
+					th:each="c : ${corsi}" th:value="${c.getId()}" th:text="${c}"></option></select>
+		</p>
+		<p>
+			Data: <input type="date" th:field="*{data}">
+		</p>
+		<input class="sub" type="submit" value="Accetta">
+	</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Select Manager - Nuovo Corso</title>
+</head>
+<link href="/style.css" rel="stylesheet">
+
+<body>
+	<div th:replace="fragments :: header"></div>
+	<h1>Aggiungi un nuovo corso</h1>
+
+	<form action="#" th:action="@{/corsoAggiunto}" th:object="${corso}"
+		method="post">
+		<p>
+			Codice del corso: <input type="text" th:field="*{codice}">
+		</p>
+		<p>
+			Categoria: <select th:field="*{categoriaCorso}"><option
+					th:each="cat : ${cats}" th:value="${cat.getId()}"
+					th:text="${cat.getCat()}"></select>
+		</p>
+		<p>
+			Prova di grafica? <select th:field="*{grafica}"><option
+					value="0">No</option>
+				<option value="1">S&igrave;</option></select>
+		</p>
+		<p>
+			Prova di ICT? <select th:field="*{it}"><option value="0">No</option>
+				<option value="1">S&igrave;</option></select>
+		</p>
+		<p>
+			Studenti massimi accettati: <input type="number" th:field="*{max}">
+		</p>
+		<input type="submit" class="sub" value="Conferma"><input
+			type="reset" class="sub" value="Resetta">
+	</form>
+</body>
+</html>
